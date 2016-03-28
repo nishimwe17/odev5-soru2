@@ -1,1 +1,34 @@
-# odev5-soru2
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+   int sayi, toplam = 0, kalan, round, basamak_sayisi = 0;
+ 
+   printf("Bir sayi giriniz\n");
+   scanf("%d", &sayi);
+ 
+   round = sayi;
+
+   while (round != 0)
+   {
+      basamak_sayisi +=1;
+      round = round/10;
+   }
+ 
+   round = sayi;//we renew our variable 'round' to the first given number
+ 
+   while (round != 0)
+   {
+      kalan = round%10;
+      toplam = toplam + pow(kalan , basamak_sayisi);
+      round = round/10;
+   }
+ 
+   if (sayi == toplam)
+      printf("%d Armstrong sayidir.\n", sayi);
+   else
+      printf("%d Armstrong sayi degildir.\n", sayi);
+ 
+   return 0;
+}
